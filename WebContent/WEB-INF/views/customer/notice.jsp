@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="n" uri="http://www.newlecture.com/jsp/tags/control"%>
@@ -83,8 +82,7 @@
 		<c:set var="page" value="${param.p}" />
 	</c:if>
 	<c:set var="start" value="${page-(page-1)%5}" />
-	<c:set var="end"
-		value="${fn:substringBefore((count%10==0?count/10:count/10+1),'.')}" />
+	<c:set var="end" value="${fn:substringBefore((count%10==0?count/10:count/10+1),'.')}" />
 	<div>${page}/${end} pages</div>
 	<div>
 		<a href="notice-reg">글쓰기</a>

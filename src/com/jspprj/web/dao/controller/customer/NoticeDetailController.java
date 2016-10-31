@@ -1,7 +1,7 @@
 package com.jspprj.web.dao.controller.customer;
 
+import java.util.List;
 import java.io.IOException;
-
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,31 +10,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jspprj.web.dao.NoticeDao;
+import com.jspprj.web.dao.NoticeFileDao;
 import com.jspprj.web.dao.mybatis.MyBatisNoticeDao;
+import com.jspprj.web.dao.mybatis.MyBatisNoticeFileDao;
 import com.jspprj.web.entities.Notice;
+import com.jspprj.web.entities.NoticeFile;
 
-@WebServlet("/customer/notice-detail") // < 가상이지만 요청이 같은 디렉토리처럼 나타나게 해주려고
-public class NoticeDetailController extends HttpServlet {
+@WebServlet("/customer/notice-detail")
+public class NoticeDetailController extends HttpServlet{
+   
+   @Override
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      
+      //사용자 입력\
+	  Notice notice;
+	  
+	  List<NoticeFile> noticeFiles;
+	   
+	  
+      String _code = request.getParameter("code");
+      NoticeDao noticeDao = new MyBatisNoticeDao();
+      NoticeFileDao noticeFileDao = new MyBatisNoticeFileDao();
+      
+      
+      notice=noticeDao.get(_code);
+      noticeFiles = noticeFileDao.getList(_code);
+      
+      
+      request.setAttribute("n", notice);
+      request.setAttribute("files", noticeFiles);
+      request.setAttribute("prev",noticeDao.getPrev(_code));
+      request.setAttribute("next",noticeDao.getNext(_code));
+      noticeDao.hitUp(_code);
+         
+      request.getRequestDispatcher("/WEB-INF/views/customer/notice-detail.jsp").forward(request, response);
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-			String _code = request.getParameter("code");
-			NoticeDao noticeDao = new MyBatisNoticeDao(); // DAO:data access object
-			Notice notice;											// 즉 data service 하는
-														// 클래스를 분리해서 재사용하도록.
-		
-			notice = noticeDao.get(_code);
-			request.setAttribute("n", notice);
-
-		// 1.그냥부르기: 니가 새로해
-		// response.sendRedirect("notice.jsp");
-
-		// 2.자원을 공유하면서 부르기: 일을 이서서 계속
-		request.getRequestDispatcher("/WEB-INF/views/customer/notice-detail.jsp").forward(request, response);
-		// Dispatcher 누군가를 호출하기 위한도구 forward
-
-	}
+      
+   }
 
 }

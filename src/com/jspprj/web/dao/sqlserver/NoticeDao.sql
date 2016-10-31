@@ -28,3 +28,22 @@ SELECT  COUNT(*) FROM(
 	NOTICES_VIEW.*FROM NOTICES_VIEW
 	WHERE TITLE LIKE '%%'
 )N
+
+SELECT ISNULL(MAX(CAST(CODE AS INT)),1) FROM NOTICES
+
+SELECT TOP 1 * FROM NOTICE WHERE CODE > 1339 order by regdate asc;  --이전글   getPrev(String code) new글--
+
+SELECT TOP 1 * FROM NOTICE WHERE CODE < 1339 order by regdate desc; --다음글   Notice getNext(String code) old글--
+
+--조횟수 1업 : int hitUp(String code)
+update NOTICES set HIT=HIT+1 from NOTICES where CODE='1339';
+
+
+select tabs
+
+select * from NOTICES
+
+select * from NOTICEFILES
+
+
+

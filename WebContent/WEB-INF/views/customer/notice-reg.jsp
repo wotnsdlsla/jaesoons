@@ -1,6 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 
 
 
@@ -23,31 +23,39 @@ request.getRemoteAddr();
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>등록 페이지</h1>
-	<form action="notice-reg" method="post">
-		<fieldset>
-			<legend>공지사항 필드수정</legend>
-			<table border="1">
-				<tbody>
-					<tr>
-						<td>제목</td>					<!-- name 키값을 전달함 -->
-						<td colspan="3"><input type="text" name="title" value="${n.title}" /></td>
-						<%-- --%>
-					</tr>
-					
-					<tr>
-														<!-- name 키값을 전달함 -->
-						<td colspan="4"><textarea name="content" rows="20" cols="60">${n.content}</textarea>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+   <h1>등록 페이지</h1>
+   <form action="notice-reg" method="post" enctype="multipart/form-data">
+      <fieldset>
+         <legend>공지사항 필드수정</legend>
+         <table border="1">
+            <tbody>
+               <tr>
+                  <td>제목</td>               <!-- name 키값을 전달함 -->
+                  <td colspan="3"><input type="text" name="title" value="${n.title}" /></td>                 
+               </tr>
+          
+               <tr>
+               <td>첨부파일</td>
+               <td><input type="file" name="file"/></td>  <!--이름이 똑같으면 배열로 간대요.  -->
+               </tr>
+               
+               <tr>
+               <td>첨부파일</td>
+               <td><input type="file" name="file"/></td>
+               </tr>
+               
+               <tr>                                  <!-- name 키값을 전달함 -->
+                  <td colspan="4"><textarea name="content" rows="20" cols="60">${n.content}</textarea>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
 
-			<div>				<!-- name 키값을 전달함 -->
-				<input type="submit" value="등록"/>
-				<a href="notice">취소</a>
-			</div>
-		</fieldset>
-	</form>
+         <div>            <!-- name 키값을 전달함 -->
+            <input type="submit" value="등록"/>
+            <a href="notice">취소</a>
+         </div>
+      </fieldset>
+   </form>
 </body>
 </html>

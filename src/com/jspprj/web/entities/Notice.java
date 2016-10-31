@@ -3,61 +3,61 @@ package com.jspprj.web.entities;
 import java.util.Date;
 
 public class Notice {
-   private String code;
-   private String title;
-   private String writer;
-   private String content;
-   private Date regdate;
-   private int hit;
+	private String code;
+	private String title;
+	private String writer;
+	private String content;
+	private Date regDate;
+	private int hit;
 
-   
+	
 
-   public String getCode() {
-      return code;
-   }
+	public String getCode() {
+		return code;
+	}
 
-   public void setCode(String code) {
-      this.code = code;
-   }
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-   public String getTitle() {
-      return title;
-   }
+	public String getTitle() {
+		return title;
+	}
 
-   public void setTitle(String title) {
-      this.title = title;
-   }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-   public String getWriter() {
-      return writer;
-   }
+	public String getWriter() {
+		return writer;
+	}
 
-   public void setWriter(String writer) {
-      this.writer = writer;
-   }
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 
-   public String getContent() {
-      return content;
-   }
+	public String getContent() {
+		return content;
+	}
 
-   public void setContent(String content) {
-      this.content = content;
-   }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-   public Date getRegdate() {
-      return regdate;
-   }
+	public Date getRegdate() {
+		return regDate;
+	}
 
-   public void setRegdate(Date regdate) {
-      this.regdate = regdate;
-   }
+	public void setRegdate(Date regDate) {
+		this.regDate = regDate;
+	}
 
-   public int getHit() {
-      return hit;
-   }
+	public int getHit() {
+		return hit;
+	}
 
-   public void setHit(int hit) {
-      this.hit = hit;
-   }
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 
 }

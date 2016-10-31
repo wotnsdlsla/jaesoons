@@ -5,7 +5,7 @@
 <title>공지사항 목록</title>
 
 <link href="../css/reset.css" type="text/css" rel="stylesheet" />
-<link href="../css/style.css" type="text/css" rel="stylesheet" />
+<link href="../css/notice.css" type="text/css" rel="stylesheet" />
 
 <script src="../js/modernizr-custom.js" type="text/javascript">
 	document.createElement("main");
@@ -35,22 +35,25 @@
                   <h1 class="hidden">메인 메뉴</h1>
                  
                   <ul>
-                     <li><a href="" lang="ko-a">학습가이드</a></li>
-                     <li><a href="" lang="ko-b">뉴렉과정</a></li>
+                     <li ><a href="" lang="ko-a" class="first">학습가이드</a></li>
+                     <li><a href="" lang="ko-b">뉴렉</a></li>
                      <li><a href="" lang="en-a">강좌선택</a></li>
                   </ul>
                </nav>
-               <section>
-                  <h1 class="hidden">강좌검색 폼</h1>
+            
+               <section id="search-form">
+                  <h1>강좌검색 폼</h1>
                   <form>
                      <fieldset>
                         <legend>과정검색필드</legend>
-                        <label>NAVER</label> 인풋에 대한 라벨 <input type="text"
-                           value="ko en" /> <input type="submit" value="검색 en" />
+                        <label>NAVER</label>
+                        <input type="text" value="" /> 
+                        <input type="submit"value=""/>
                      </fieldset>
                   </form>
                </section>
-               <nav class="h-menu clearfix">
+               
+               <nav id="member-menu">
                   <h1 class="hidden">회원 메뉴</h1>
                   <ul>
                      <li><a href="">HOME</a></li>
@@ -58,7 +61,7 @@
                      <li><a href="">회원가입</a></li>
                   </ul>
                </nav>
-               <nav class="h-menu clearfix">
+               <nav id="customer-menu">
                   <h1 class="hidden">고객 메뉴</h1>
                   <ul>
                      <li><a href=""><img src="../images/txt-mypage.png"
